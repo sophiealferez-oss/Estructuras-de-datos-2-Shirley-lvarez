@@ -41,17 +41,36 @@ public class organigrama {
     
         System.out.println("Nivel 0 (raiz): " + empresa.getDato());
         System.out.println();
-        System.out.println("Nivel 1 (hijos de empresa): " + tecnologia.getDato() + ", " + finanzas.getDato() + ", " + recursosHumanos.getDato());
+        System.out.println("Nivel 1 - hijos de empresa: " + empresa.getDato());
         System.out.println();
+        System.out.println(empresa.getHijos().get(0).getDato());
+        System.out.println();
+        System.out.println(empresa.getHijos().get(1).getDato());
+        System.out.println();
+        System.out.println(empresa.getHijos().get(2).getDato());
 
         System.out.println("Nivel 2");
-    
-        System.out.println();
-        System.out.println("hijos de tecnologia: " + desarrollo.getDato() + ", " + soporte.getDato());
-        System.out.println("hijos de finanzas:  " + contabilidad.getDato() + ", " + tesoreria.getDato());
-        System.out.println("hijos de recursos humanos:  " + seleccion.getDato());
-        
 
+        System.out.println();
+
+        System.out.println("hijos de tecnologia: " + tecnologia.getDato());
+        System.out.println();
+        System.out.println(tecnologia.getHijos().get(0).getDato());
+        System.out.println();
+        System.out.println(tecnologia.getHijos().get(1).getDato());
+        System.out.println();
+
+        System.out.println("hijos de finanzas: " + finanzas.getDato());
+        System.out.println();
+        System.out.println(finanzas.getHijos().get(0).getDato());
+        System.out.println();
+        System.out.println(finanzas.getHijos().get(1).getDato());
+
+        System.out.println();
+        System.out.println("hijos de recursos humanos: " + recursosHumanos.getDato());
+        System.out.println(recursosHumanos.getHijos().get(0).getDato());
+
+    
 
 
     }
