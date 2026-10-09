@@ -25,7 +25,7 @@ public class organigrama {
         NodoGeneral<String> seleccion = new NodoGeneral<>("seleccion");
         NodoGeneral<String> soporte = new NodoGeneral<>("soporte");
 
-        // Se arma la jerarquía
+        //  jerarquía
         empresa.agregarHijo(tecnologia);
         empresa.agregarHijo(finanzas);
         empresa.agregarHijo(recursosHumanos);
