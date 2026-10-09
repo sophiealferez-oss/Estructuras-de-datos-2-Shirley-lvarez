@@ -31,7 +31,7 @@ class NodoGeneral<T> {
 }
 
 public class main {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         NodoGeneral<String> empresa = new NodoGeneral<>("Empresa");
         NodoGeneral<String> tecnologia = new NodoGeneral<>("tecnologia");
         NodoGeneral<String> finanzas = new NodoGeneral<>("finanzas");
