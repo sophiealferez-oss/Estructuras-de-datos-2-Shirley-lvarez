@@ -1,206 +1,206 @@
 public class Main {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        // ============================================================
-        // 1. CREACIÓN DE LOS NODOS
-        // ============================================================
+                // ============================================================
+                // 1. CREACIÓN DE LOS NODOS
+                // ============================================================
 
-        NodoGeneral<String> IUDC = new NodoGeneral<>("IUDC");
+                NodoGeneral<String> IUDC = new NodoGeneral<>("IUDC");
 
-        // Nivel 1
-        NodoGeneral<String> ingenieriadeSoftware = new NodoGeneral<>("Ingenieria de Software");
+                // Nivel 1
+                NodoGeneral<String> ingenieriadeSoftware = new NodoGeneral<>("Ingenieria de Software");
 
-        NodoGeneral<String> veterinaria = new NodoGeneral<>("Veterinaria");
+                NodoGeneral<String> veterinaria = new NodoGeneral<>("Veterinaria");
 
-        NodoGeneral<String> IngenieríaIndustrial = new NodoGeneral<>("Ingeniería Industrial");
+                NodoGeneral<String> IngenieríaIndustrial = new NodoGeneral<>("Ingeniería Industrial");
 
-        // Nivel 2
-        NodoGeneral<String> BasesDatos = new NodoGeneral<>("Bases de datos");
+                // Nivel 2
+                NodoGeneral<String> BasesDatos = new NodoGeneral<>("Bases de datos");
 
-        NodoGeneral<String> Lenguajes2 = new NodoGeneral<>("Lenguajes de programacion II");
+                NodoGeneral<String> Lenguajes2 = new NodoGeneral<>("Lenguajes de programacion II");
 
-        NodoGeneral<String> AnatomiaAnimal = new NodoGeneral<>("Anatomia Animal");
+                NodoGeneral<String> AnatomiaAnimal = new NodoGeneral<>("Anatomia Animal");
 
-        NodoGeneral<String> Calculo = new NodoGeneral<>("Calculo");
+                NodoGeneral<String> Calculo = new NodoGeneral<>("Calculo");
 
-        // Nivel 3
+                // Nivel 3
 
-        NodoGeneral<String> POO = new NodoGeneral<>("POO");
+                NodoGeneral<String> POO = new NodoGeneral<>("POO");
 
-        NodoGeneral<String> LenguajesdeProgramacionJava = new NodoGeneral<>(" Lenguajes de Programacion Java");
+                NodoGeneral<String> LenguajesdeProgramacionJava = new NodoGeneral<>(" Lenguajes de Programacion Java");
 
-        NodoGeneral<String> calculoIntegral = new NodoGeneral<>("calculo Integral");
+                NodoGeneral<String> calculoIntegral = new NodoGeneral<>("calculo Integral");
 
-        NodoGeneral<String> calculoDiferencial = new NodoGeneral<>("Calculo Diferencial");
+                NodoGeneral<String> calculoDiferencial = new NodoGeneral<>("Calculo Diferencial");
 
-        // Nivel 4
-        NodoGeneral<String> NetBeans = new NodoGeneral<>("Netbeans");
+                // Nivel 4
+                NodoGeneral<String> NetBeans = new NodoGeneral<>("Netbeans");
 
-        NodoGeneral<String> Derivadas = new NodoGeneral<>("Derivadas");
+                NodoGeneral<String> Derivadas = new NodoGeneral<>("Derivadas");
 
-        // ============================================================
-        // 2. CONSTRUCCIÓN DE LA JERARQUÍA
-        // ============================================================
+                // ============================================================
+                // 2. CONSTRUCCIÓN DE LA JERARQUÍA
+                // ============================================================
 
-        IUDC.agregarHijo(ingenieriadeSoftware);
-        IUDC.agregarHijo(veterinaria);
-        IUDC.agregarHijo(IngenieríaIndustrial);
+                IUDC.agregarHijo(ingenieriadeSoftware);
+                IUDC.agregarHijo(veterinaria);
+                IUDC.agregarHijo(IngenieríaIndustrial);
 
-        ingenieriadeSoftware.agregarHijo(BasesDatos);
-        ingenieriadeSoftware.agregarHijo(Lenguajes2);
+                ingenieriadeSoftware.agregarHijo(BasesDatos);
+                ingenieriadeSoftware.agregarHijo(Lenguajes2);
 
-        veterinaria.agregarHijo(AnatomiaAnimal);
+                veterinaria.agregarHijo(AnatomiaAnimal);
 
-        IngenieríaIndustrial.agregarHijo(Calculo);
+                IngenieríaIndustrial.agregarHijo(Calculo);
 
-        Lenguajes2.agregarHijo(POO);
-        Lenguajes2.agregarHijo(LenguajesdeProgramacionJava);
+                Lenguajes2.agregarHijo(POO);
+                Lenguajes2.agregarHijo(LenguajesdeProgramacionJava);
 
-        Calculo.agregarHijo(calculoIntegral);
-        Calculo.agregarHijo(calculoDiferencial);
+                Calculo.agregarHijo(calculoIntegral);
+                Calculo.agregarHijo(calculoDiferencial);
 
-        LenguajesdeProgramacionJava.agregarHijo(Netbeans);
-        calculoDiferencial.agregarHijo(Derivadas);
+                LenguajesdeProgramacionJava.agregarHijo(NetBeans);
+                calculoDiferencial.agregarHijo(Derivadas);
 
-        // ============================================================
-        // 3. MOSTRAR EL ÁRBOL
-        // ============================================================
+                // ============================================================
+                // 3. MOSTRAR EL ÁRBOL
+                // ============================================================
 
-        System.out.println("=== ÁRBOL UNIVERSITARIO ===");
-        MetricasArbol.mostrarArbol(universidad, 0);
+                System.out.println("=== ÁRBOL UNIVERSITARIO ===");
+                metricasarbol.mostrarArbol(IUDC, 0);
 
-        // ============================================================
-        // 4. PROPIEDADES GENERALES
-        // ============================================================
+                // ============================================================
+                // 4. PROPIEDADES GENERALES
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== PROPIEDADES DEL ÁRBOL ===");
+                System.out.println();
+                System.out.println("=== PROPIEDADES DEL ÁRBOL ===");
 
-        System.out.println(
-                "Raíz: " + universidad.getDato());
+                System.out.println(
+                                "Raíz: " + IUDC.getDato());
 
-        System.out.println(
-                "Número total de nodos: "
-                        + MetricasArbol.contarNodos(universidad));
+                System.out.println(
+                                "Número total de nodos: "
+                                                + metricasarbol.contarNodos(IUDC));
 
-        System.out.println(
-                "Número de hojas: "
-                        + MetricasArbol.contarHojas(universidad));
+                System.out.println(
+                                "Número de hojas: "
+                                                + metricasarbol.contarHojas(IUDC));
 
-        System.out.println(
-                "Grado del árbol: "
-                        + MetricasArbol.gradoArbol(universidad));
+                System.out.println(
+                                "Grado del árbol: "
+                                                + metricasarbol.gradoArbol(IUDC));
 
-        System.out.println(
-                "Altura del árbol: "
-                        + MetricasArbol.altura(universidad));
+                System.out.println(
+                                "Altura del árbol: "
+                                                + metricasarbol.altura(IUDC));
 
-        System.out.println(
-                "Número de niveles: "
-                        + (MetricasArbol.altura(universidad) + 1));
+                System.out.println(
+                                "Número de niveles: "
+                                                + (metricasarbol.altura(IUDC) + 1));
 
-        // ============================================================
-        // 5. PROFUNDIDAD DE CINCO NODOS
-        // ============================================================
+                // ============================================================
+                // 5. PROFUNDIDAD DE CINCO NODOS
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== PROFUNDIDAD DE CINCO NODOS ===");
+                System.out.println();
+                System.out.println("=== PROFUNDIDAD DE CINCO NODOS ===");
 
-        mostrarProfundidad(universidad, ingenieria);
-        mostrarProfundidad(universidad, sistemas);
-        mostrarProfundidad(universidad, semilleroIA);
-        mostrarProfundidad(universidad, administracion);
-        mostrarProfundidad(universidad, cultura);
+                mostrarProfundidad(IUDC, ingenieriadeSoftware);
+                mostrarProfundidad(IUDC, BasesDatos);
+                mostrarProfundidad(IUDC, Lenguajes2);
+                mostrarProfundidad(IUDC, AnatomiaAnimal);
+                mostrarProfundidad(IUDC, Derivadas);
 
-        // ============================================================
-        // 6. GRADO DE NODOS
-        // ============================================================
+                // ============================================================
+                // 6. GRADO DE NODOS
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== GRADO DE ALGUNOS NODOS ===");
+                System.out.println();
+                System.out.println("=== GRADO DE ALGUNOS NODOS ===");
 
-        mostrarGrado(universidad);
-        mostrarGrado(ingenieria);
-        mostrarGrado(sistemas);
-        mostrarGrado(software);
-        mostrarGrado(semilleroIA);
+                mostrarGrado(IUDC);
+                mostrarGrado(ingenieriadeSoftware);
+                mostrarGrado(veterinaria);
+                mostrarGrado(IngenieríaIndustrial);
+                mostrarGrado(LenguajesdeProgramacionJava);
 
-        // ============================================================
-        // 7. TABLA COMPLETA DE MÉTRICAS
-        // ============================================================
+                // ============================================================
+                // 7. TABLA COMPLETA DE MÉTRICAS
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== TABLA DE MÉTRICAS ===");
-        MetricasArbol.mostrarTablaMetricas(universidad);
+                System.out.println();
+                System.out.println("=== TABLA DE MÉTRICAS ===");
+                metricasarbol.mostrarTablaMetricas(IUDC);
 
-        // ============================================================
-        // 8. DOS CAMINOS Y SU LONGITUD
-        // ============================================================
+                // ============================================================
+                // 8. DOS CAMINOS Y SU LONGITUD
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== CAMINOS ===");
+                System.out.println();
+                System.out.println("=== CAMINOS ===");
 
-        mostrarCamino(universidad, semilleroDatos);
-        mostrarCamino(universidad, contaduria);
+                mostrarCamino(IUDC, Calculo);
+                mostrarCamino(IUDC, POO);
 
-        // ============================================================
-        // 9. COMPARACIÓN MANUAL VS. CÓDIGO
-        // ============================================================
+                // ============================================================
+                // 9. COMPARACIÓN MANUAL VS. CÓDIGO
+                // ============================================================
 
-        System.out.println();
-        System.out.println("=== COMPARACIÓN ===");
+                System.out.println();
+                System.out.println("=== COMPARACIÓN ===");
 
-        int alturaManual = 3;
-        int alturaCalculada = MetricasArbol.altura(universidad);
+                int alturaManual = 3;
+                int alturaCalculada = metricasarbol.altura(IUDC);
 
-        System.out.println(
-                "Altura calculada manualmente: "
-                        + alturaManual);
+                System.out.println(
+                                "Altura calculada manualmente: "
+                                                + alturaManual);
 
-        System.out.println(
-                "Altura calculada por Java: "
-                        + alturaCalculada);
+                System.out.println(
+                                "Altura calculada por Java: "
+                                                + alturaCalculada);
 
-        System.out.println(
-                alturaManual == alturaCalculada
-                        ? "Resultado: COINCIDEN."
-                        : "Resultado: REVISAR CÁLCULO.");
-    }
+                System.out.println(
+                                alturaManual == alturaCalculada
+                                                ? "Resultado: COINCIDEN."
+                                                : "Resultado: REVISAR CÁLCULO.");
+        }
 
-    private static void mostrarProfundidad(
-            NodoGeneral<?> raiz,
-            NodoGeneral<?> nodo) {
+        private static void mostrarProfundidad(
+                        NodoGeneral<?> raiz,
+                        NodoGeneral<?> nodo) {
 
-        System.out.printf(
-                "%-28s -> %d%n",
-                nodo.getDato(),
-                MetricasArbol.profundidad(raiz, nodo));
-    }
+                System.out.printf(
+                                "%-28s -> %d%n",
+                                nodo.getDato(),
+                                metricasarbol.profundidad(raiz, nodo));
+        }
 
-    private static void mostrarGrado(
-            NodoGeneral<?> nodo) {
+        private static void mostrarGrado(
+                        NodoGeneral<?> nodo) {
 
-        System.out.printf(
-                "%-28s -> %d%n",
-                nodo.getDato(),
-                MetricasArbol.gradoNodo(nodo));
-    }
+                System.out.printf(
+                                "%-28s -> %d%n",
+                                nodo.getDato(),
+                                metricasarbol.gradoNodo(nodo));
+        }
 
-    private static void mostrarCamino(
-            NodoGeneral<?> raiz,
-            NodoGeneral<?> destino) {
+        private static void mostrarCamino(
+                        NodoGeneral<?> raiz,
+                        NodoGeneral<?> destino) {
 
-        var ruta = MetricasArbol.camino(raiz, destino);
+                var ruta = metricasarbol.camino(raiz, destino);
 
-        System.out.println(
-                MetricasArbol.rutaComoTexto(ruta));
+                System.out.println(
+                                metricasarbol.rutaComoTexto(ruta));
 
-        System.out.println(
-                "Longitud: "
-                        + MetricasArbol.longitudCamino(
-                                raiz,
-                                destino)
-                        + " aristas");
-    }
+                System.out.println(
+                                "Longitud: "
+                                                + metricasarbol.longitudCamino(
+                                                                raiz,
+                                                                destino)
+                                                + " aristas");
+        }
 }
