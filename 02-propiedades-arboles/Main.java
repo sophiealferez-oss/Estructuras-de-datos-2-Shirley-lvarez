@@ -151,7 +151,7 @@ public class Main {
                 System.out.println();
                 System.out.println("=== COMPARACIÓN ===");
 
-                int alturaManual = 3;
+                int alturaManual = 4;
                 int alturaCalculada = metricasarbol.altura(IUDC);
 
                 System.out.println(
