@@ -1,0 +1,22 @@
+=== ÁRBOL COMPLETO ===
+RAÍZ -> Colombia
+   IZQ -> Bogota
+      IZQ -> Usme
+      DER -> Suba
+   DER -> Acacias
+      IZQ -> Nutivara
+      DER -> Bachue
+
+=== PROPIEDADES ===
+Nodos: 7
+Hojas: 4
+Altura: 2
+Grado de Colombia: 2
+¿Usme es hoja?: true
+
+=== CONTROL DE NULL ===
+Hijo izquierdo de Usme: null
+Usme no tiene hijo izquierdo; la referencia es null.
+
+=== ÁRBOL VACÍO ===
+El árbol está vacío.

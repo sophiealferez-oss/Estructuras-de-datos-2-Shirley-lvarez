@@ -1,0 +1,10 @@
+=== ÁRBOL DE EXPRESIÓN ===
+RAÍZ -> *
+   IZQ -> +
+      IZQ -> 8
+      DER -> 2
+   DER -> -
+      IZQ -> 11
+      DER -> 4
+
+Resultado de (8 + 2) * (11 - 4): 70
