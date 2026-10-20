@@ -1,0 +1,41 @@
+=== BST DE 7 NODOS ===
+        80
+    70
+        60
+50
+        40
+    30
+        20
+
+Inorden:
+20 30 40 50 60 70 80 
+
+Buscar 60:
+encontrado=true, comparaciones=3, camino=50 -> 70 -> 60
+
+Buscar 65:
+encontrado=false, comparaciones=3, camino=50 -> 70 -> 60 -> null
+
+=== DATOS DISTRIBUIDOS ===
+Buscar 5 -> encontrado=true, comparaciones=4, camino=50 -> 25 -> 10 -> 5
+Buscar 40 -> encontrado=true, comparaciones=4, camino=50 -> 25 -> 35 -> 40
+Buscar 65 -> encontrado=true, comparaciones=4, camino=50 -> 75 -> 60 -> 65
+Buscar 95 -> encontrado=true, comparaciones=4, camino=50 -> 75 -> 90 -> 95
+Buscar 100 -> encontrado=false, comparaciones=4, camino=50 -> 75 -> 90 -> 95 -> null
+
+=== DATOS ORDENADOS ===
+Buscar 5 -> encontrado=true, comparaciones=1, camino=5
+Buscar 40 -> encontrado=true, comparaciones=7, camino=5 -> 10 -> 15 -> 25 -> 30 -> 35 -> 40
+Buscar 65 -> encontrado=true, comparaciones=11, camino=5 -> 10 -> 15 -> 25 -> 30 -> 35 -> 40 -> 50 -> 55 -> 60 -> 65
+Buscar 95 -> encontrado=true, comparaciones=15, camino=5 -> 10 -> 15 -> 25 -> 30 -> 35 -> 40 -> 50 -> 55 -> 60 -> 65 -> 75 -> 80 -> 90 -> 95
+Buscar 100 -> encontrado=false, comparaciones=15, camino=5 -> 10 -> 15 -> 25 -> 30 -> 35 -> 40 -> 50 -> 55 -> 60 -> 65 -> 75 -> 80 -> 90 -> 95 -> null
+
+=== COMPARACIÓN ===
+Altura distribuido: 3
+Altura ordenado: 14
+Comparaciones distribuidas: 20
+Comparaciones ordenadas: 49
+Promedio distribuido: 4.00
+Promedio ordenado: 9.80
+
+Conclusión: insertar datos ya ordenados puede degenerar el BST y acercar búsqueda/inserción a O(n).
