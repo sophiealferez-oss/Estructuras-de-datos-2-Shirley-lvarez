@@ -278,7 +278,7 @@ public class Main {
 
                 int[] valores = {
 
-                                80000, 99, 50000, 30, 105, 95000
+                                80000, 99, 30,105,90000,50000
                 };
 
                 ArbolBST arbol = new ArbolBST();
