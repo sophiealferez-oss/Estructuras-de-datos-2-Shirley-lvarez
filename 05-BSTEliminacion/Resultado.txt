@@ -1,0 +1,99 @@
+========================================
+CASO 1: ELIMINAR NODO HOJA
+========================================
+
+ANTES de eliminar 20:
+        80
+    70
+        60
+50
+        40
+    30
+        20
+
+Inorden antes:
+20 30 40 50 60 70 80 
+
+DESPUÉS de eliminar 20:
+        80
+    70
+        60
+50
+        40
+    30
+
+Inorden después:
+30 40 50 60 70 80 
+¿BST válido?: true
+¿20 existe?: false
+
+========================================
+CASO 2: ELIMINAR NODO CON UN HIJO
+========================================
+
+ANTES de eliminar 60:
+        80
+    70
+            65
+        60
+50
+        40
+    30
+        20
+
+Inorden antes:
+20 30 40 50 60 65 70 80 
+
+DESPUÉS de eliminar 60:
+        80
+    70
+        65
+50
+        40
+    30
+        20
+
+Inorden después:
+20 30 40 50 65 70 80 
+¿BST válido?: true
+¿60 existe?: false
+¿65 sigue existiendo?: true
+
+========================================
+CASO 3: DOS HIJOS / ELIMINAR RAÍZ
+========================================
+
+ANTES de eliminar la raíz 50:
+        80
+    70
+        60
+50
+        40
+    30
+        20
+
+Inorden antes:
+20 30 40 50 60 70 80 
+
+Sucesor inorden de 50: 60
+
+DESPUÉS de eliminar la raíz 50:
+        80
+    70
+60
+        40
+    30
+        20
+
+Inorden después:
+20 30 40 60 70 80 
+Nueva raíz: 60
+¿BST válido?: true
+¿50 existe?: false
+
+========================================
+PRUEBA EXTRA: ELIMINAR VALOR INEXISTENTE
+========================================
+Nodos antes: 7
+Nodos después: 7
+¿BST válido?: true
