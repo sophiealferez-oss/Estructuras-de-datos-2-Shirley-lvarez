@@ -198,15 +198,3 @@ Comparaciones: 4 | Camino: 50 -> 70 -> 60 -> 65 | Altura del árbol: 4
 - Con **inserción aleatoria** la altura crece muy despacio (27 para 1000 productos) y el promedio queda cerca de 1,39·log₂ n, el valor esperado para un BST aleatorio. Es el caso **O(log n)**.
 - Pasar de 1000 a 5000 productos multiplica por 5 el costo del árbol ordenado, pero apenas cambia el del árbol aleatorio. Por eso conviene no cargar el inventario con códigos ya ordenados, o usar un árbol autobalanceado (AVL o rojo-negro).
 
-## Pruebas realizadas (48/48 correctas)
-Las pruebas están en `Pruebas.java` y su resultado en [`salida_pruebas.txt`](salida_pruebas.txt):
-1. **Carga y registro:** se cargan 10 productos, la altura es 4, Inorden queda ordenado, se registra un código nuevo y un **código duplicado se rechaza** sin cambiar el tamaño ni el producto original.
-2. **Búsqueda:** número exacto de comparaciones y camino para un código existente (65), para la raíz y para **códigos inexistentes** (66 y 1); ninguna búsqueda supera la altura.
-3. **Menor y mayor código:** 10 y 80.
-4. **Eliminación:** hoja (10), nodo con un hijo (60), nodo con dos hijos (30, lo reemplaza el sucesor 35), la raíz (50, lo reemplaza el 65), código inexistente (99) y nuevo registro de un código eliminado. Inorden sigue ordenado al final.
-5. **Árbol vacío:** buscar, menor, mayor, eliminar, Inorden y altura no lanzan errores. Eliminar los 10 productos deja el árbol vacío.
-6. **Validación de datos:** se rechazan código 0 o negativo, nombre vacío y precio o cantidad negativos; cantidad 0 sí es válida (producto agotado).
-7. **Inserción aleatoria vs ordenada:** la ordenada tiene altura n y promedio (n + 1) / 2; la aleatoria tiene altura menor que 50 y menos de 20 comparaciones en promedio.
-
-## Evidencias del menú
-Agregar aquí las capturas de pantalla (o el enlace al video) del menú funcionando en VS Code: registrar, código duplicado, buscar uno existente y uno inexistente, eliminar, listar Inorden, menor y mayor, y la prueba de inserción.
