@@ -69,4 +69,43 @@ public class ArbolBST {
     public boolean contiene(int codigo) {
         return buscar(codigo).isEncontrado();
     }
+
+    /**
+     * Elimina el producto con ese código manteniendo el invariante del BST.
+     * Casos: hoja (se quita), un hijo (el hijo sube) y dos hijos
+     * (se copia el sucesor inorden y se elimina el sucesor del subárbol derecho).
+     * Complejidad: O(h).
+     * @return el producto eliminado, o null si el código no existe
+     */
+    public Producto eliminar(int codigo) {
+        Producto eliminado = buscar(codigo).getProducto();
+        if (eliminado == null) return null;
+        raiz = eliminar(raiz, codigo);
+        tamano--;
+        return eliminado;
+    }
+
+    private NodoArbol eliminar(NodoArbol nodo, int codigo) {
+        if (nodo == null) return null;
+        int codigoActual = nodo.getDato().getCodigo();
+        if (codigo < codigoActual) {
+            nodo.setIzquierdo(eliminar(nodo.getIzquierdo(), codigo));
+        } else if (codigo > codigoActual) {
+            nodo.setDerecho(eliminar(nodo.getDerecho(), codigo));
+        } else {
+            // Caso 1 y 2: hoja o un solo hijo
+            if (nodo.getIzquierdo() == null) return nodo.getDerecho();
+            if (nodo.getDerecho() == null) return nodo.getIzquierdo();
+            // Caso 3: dos hijos -> sucesor inorden (mínimo del subárbol derecho)
+            NodoArbol sucesor = minimo(nodo.getDerecho());
+            nodo.setDato(sucesor.getDato());
+            nodo.setDerecho(eliminar(nodo.getDerecho(), sucesor.getDato().getCodigo()));
+        }
+        return nodo;
+    }
+
+    private NodoArbol minimo(NodoArbol nodo) {
+        while (nodo.getIzquierdo() != null) nodo = nodo.getIzquierdo();
+        return nodo;
+    }
 }
