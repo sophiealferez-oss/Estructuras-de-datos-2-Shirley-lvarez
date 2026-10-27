@@ -1,0 +1,65 @@
+=== Carga y registro ===
+[OK]    Se cargan los 10 productos
+[OK]    Altura del catálogo = 4 niveles
+[OK]    Inorden ordenado por código
+[OK]    Registrar código nuevo (25)
+[OK]    Tamaño sube a 11
+[OK]    Código duplicado (50) se rechaza
+[OK]    Duplicado no cambia el tamaño
+[OK]    Duplicado no reemplaza al original
+
+=== Búsqueda y comparaciones ===
+[OK]    Buscar 65 lo encuentra (Router)
+[OK]    Buscar 65 hace 4 comparaciones
+[OK]    Camino de 65 = 50 -> 70 -> 60 -> 65
+[OK]    Buscar la raíz (50) hace 1 comparación
+[OK]    Buscar 66 (inexistente) no lo encuentra
+[OK]    Buscar 66 hace 4 comparaciones
+[OK]    Buscar 1 (inexistente) recorre 50 -> 30 -> 20 -> 10
+[OK]    Ninguna búsqueda supera la altura
+
+=== Menor y mayor código ===
+[OK]    Menor código = 10 (USB 32GB)
+[OK]    Mayor código = 80 (Impresora)
+
+=== Eliminación ===
+[OK]    Eliminar hoja (10) devuelve USB 32GB
+[OK]    10 ya no existe
+[OK]    Nuevo menor código = 20
+[OK]    Eliminar nodo con un hijo (60)
+[OK]    Su hijo 65 sube: camino 50 -> 70 -> 65
+[OK]    Eliminar nodo con dos hijos (30)
+[OK]    El sucesor 35 ocupa su lugar: camino 50 -> 35
+[OK]    Eliminar la raíz (50)
+[OK]    La nueva raíz es el sucesor 65
+[OK]    Eliminar inexistente (99) devuelve null
+[OK]    Tamaño final = 6
+[OK]    Inorden sigue ordenado tras eliminar
+[OK]    Se puede volver a registrar un código eliminado
+
+=== Árbol vacío ===
+[OK]    Árbol vacío: buscar hace 0 comparaciones
+[OK]    Árbol vacío: menor es null
+[OK]    Árbol vacío: mayor es null
+[OK]    Árbol vacío: eliminar devuelve null
+[OK]    Árbol vacío: Inorden vacío
+[OK]    Árbol vacío: altura 0
+[OK]    Eliminar los 10 deja el árbol vacío
+
+=== Validación de datos del producto ===
+[OK]    Código 0 se rechaza
+[OK]    Código negativo se rechaza
+[OK]    Nombre vacío se rechaza
+[OK]    Precio negativo se rechaza
+[OK]    Cantidad negativa se rechaza
+[OK]    Cantidad 0 sí es válida (agotado)
+
+=== Inserción aleatoria vs ordenada (n = 1000) ===
+  Resultado[tipo=Aleatoria, n=1000, altura=27, promedioComparaciones=13.401, comparacionesInexistente=8]
+  Resultado[tipo=Ordenada, n=1000, altura=1000, promedioComparaciones=500.5, comparacionesInexistente=1000]
+[OK]    Ordenada degenera en lista: altura = n
+[OK]    Ordenada: promedio de comparaciones = (n+1)/2
+[OK]    Aleatoria: altura mucho menor que n (< 50)
+[OK]    Aleatoria: promedio < 20 comparaciones
+
+Resultado: 48/48 pruebas correctas
