@@ -108,4 +108,44 @@ public class ArbolBST {
         while (nodo.getIzquierdo() != null) nodo = nodo.getIzquierdo();
         return nodo;
     }
+
+    /** Producto de menor código (nodo más a la izquierda). O(h). Null si está vacío. */
+    public Producto menor() {
+        return raiz == null ? null : minimo(raiz).getDato();
+    }
+
+    /** Producto de mayor código (nodo más a la derecha). O(h). Null si está vacío. */
+    public Producto mayor() {
+        if (raiz == null) return null;
+        NodoArbol actual = raiz;
+        while (actual.getDerecho() != null) actual = actual.getDerecho();
+        return actual.getDato();
+    }
+
+    /** Recorrido Inorden: devuelve los productos ordenados por código. O(n). */
+    public List<Producto> inorden() {
+        List<Producto> lista = new ArrayList<>();
+        inorden(raiz, lista);
+        return lista;
+    }
+
+    private void inorden(NodoArbol nodo, List<Producto> lista) {
+        if (nodo == null) return;
+        inorden(nodo.getIzquierdo(), lista);
+        lista.add(nodo.getDato());
+        inorden(nodo.getDerecho(), lista);
+    }
+
+    /**
+     * Altura medida en niveles: árbol vacío = 0, un solo nodo = 1.
+     * Es el máximo de comparaciones que puede hacer una búsqueda. O(n).
+     */
+    public int altura() {
+        return altura(raiz);
+    }
+
+    private int altura(NodoArbol nodo) {
+        if (nodo == null) return 0;
+        return 1 + Math.max(altura(nodo.getIzquierdo()), altura(nodo.getDerecho()));
+    }
 }
