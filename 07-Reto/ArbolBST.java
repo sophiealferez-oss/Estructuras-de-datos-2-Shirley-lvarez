@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Árbol binario de búsqueda de productos, ordenado por código.
  * Invariante: todo código del subárbol izquierdo es menor que el del nodo
@@ -43,5 +46,27 @@ public class ArbolBST {
         }
         tamano++;
         return true;
+    }
+
+    /**
+     * Busca un producto por código registrando cada nodo comparado.
+     * Complejidad: O(h). Las comparaciones nunca superan la altura del árbol.
+     */
+    public ResultadoBusqueda buscar(int codigo) {
+        List<Integer> camino = new ArrayList<>();
+        NodoArbol actual = raiz;
+        while (actual != null) {
+            int codigoActual = actual.getDato().getCodigo();
+            camino.add(codigoActual);
+            if (codigo == codigoActual) {
+                return new ResultadoBusqueda(actual.getDato(), camino.size(), camino);
+            }
+            actual = codigo < codigoActual ? actual.getIzquierdo() : actual.getDerecho();
+        }
+        return new ResultadoBusqueda(null, camino.size(), camino);
+    }
+
+    public boolean contiene(int codigo) {
+        return buscar(codigo).isEncontrado();
     }
 }
