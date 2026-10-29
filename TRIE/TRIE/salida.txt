@@ -1,0 +1,25 @@
+=== Mini motor de autocompletado (Trie) ===
+Palabras cargadas: 40
+
+--- Sugerencias (maximo 5) ---
+Prefijo "pro" -> [procesador, proceso, producto, programa, programacion]
+Prefijo "est" -> [estado, estandar, estrategia, estructura, estudiante]
+Prefijo "ar" -> [arbol, archivo, arreglo]
+Prefijo "co" -> [codigo, cola, compilador, consulta]
+Prefijo "di" -> [diccionario, directorio, diseno]
+Prefijo "xyz" -> (sin sugerencias)
+
+--- Pruebas automaticas ---
+[OK]    buscar("nodo") es true
+[OK]    buscar("NODO") es true (ignora mayusculas)
+[OK]    buscar("pro") es false (solo prefijo)
+[OK]    buscar("programas") es false
+[OK]    empiezaCon("prog") es true
+[OK]    empiezaCon("zz") es false
+[OK]    sugerir("pro") devuelve 5 resultados
+[OK]    sugerir("pro", 3) devuelve 3 resultados
+[OK]    sugerir("pila") devuelve [pila]
+[OK]    sugerir("xyz") devuelve lista vacia
+[OK]    insertar duplicado no cambia el tamano (40)
+
+Resultado: 11/11 pruebas correctas
