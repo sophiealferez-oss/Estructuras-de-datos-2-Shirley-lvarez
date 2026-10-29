@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * Programa de prueba del mini motor de autocompletado.
- * Carga un diccionario de 40 palabras, ejecuta pruebas verificables
+ * Carga un diccionario de 30 palabras, ejecuta pruebas verificables
  * y ofrece un modo interactivo (opcional: java Main -i).
  */
 public class Main {

@@ -14,7 +14,7 @@ verificar prefijos y sugerir palabras (máximo 5 resultados) a partir de un pref
 11-trie-autocompletado/
 ├── NodoTrie.java   # Nodo: Map<Character,NodoTrie> hijos + boolean finPalabra
 ├── Trie.java       # insertar, buscar, empiezaCon, sugerir
-├── Main.java       # Diccionario de 40 palabras, 5 prefijos y 11 pruebas automáticas
+├── Main.java       # Diccionario de 30 palabras, 5 prefijos (+1 inexistente) y 11 pruebas automáticas
 ├── salida.txt      # Salida real de la ejecución
 └── README.md
 ```
@@ -82,39 +82,48 @@ validación de prefijos y autocompletado. La contrapartida es un mayor consumo d
 
 ## Evidencia de ejecución
 
-Diccionario cargado: **40 palabras** (mínimo exigido: 30). Prefijos probados: `pro`, `est`, `ar`,
-`co`, `di` y uno inexistente (`xyz`).
+Diccionario cargado: **30 palabras** de veterinaria (mínimo exigido: 30):
+
+> anestesia, antibiótico, antiparasitario, bozal, cánido, celo, castración, cirugía,
+> clinorresistencia, desparasitación, diagnóstico, ecografía, eutanasia, felino, garrapata,
+> gestación, histopatología, inmunización, laceración, microchip, miosis, necropsia,
+> otomicroscopía, patología, pronóstico, quórum, rabia, radiografía, sonda, vacuna
+
+Prefijos probados: `cir`, `ane`, `anti`, `vac`, `qu` y uno inexistente (`xen`).
 
 ```
 === Mini motor de autocompletado (Trie) ===
-Palabras cargadas: 40
+Palabras cargadas: 30
 
 --- Sugerencias (maximo 5) ---
-Prefijo "pro" -> [procesador, proceso, producto, programa, programacion]
-Prefijo "est" -> [estado, estandar, estrategia, estructura, estudiante]
-Prefijo "ar" -> [arbol, archivo, arreglo]
-Prefijo "co" -> [codigo, cola, compilador, consulta]
-Prefijo "di" -> [diccionario, directorio, diseno]
-Prefijo "xyz" -> (sin sugerencias)
+Prefijo "cir" -> [cirugía]
+Prefijo "ane" -> [anestesia]
+Prefijo "anti" -> [antibiótico, antiparasitario]
+Prefijo "vac" -> [vacuna]
+Prefijo "qu" -> [quórum]
+Prefijo "xen" -> (sin sugerencias)
 
 --- Pruebas automaticas ---
-[OK]    buscar("nodo") es true
-[OK]    buscar("NODO") es true (ignora mayusculas)
-[OK]    buscar("pro") es false (solo prefijo)
-[OK]    buscar("programas") es false
-[OK]    empiezaCon("prog") es true
-[OK]    empiezaCon("zz") es false
-[OK]    sugerir("pro") devuelve 5 resultados
-[OK]    sugerir("pro", 3) devuelve 3 resultados
-[OK]    sugerir("pila") devuelve [pila]
-[OK]    sugerir("xyz") devuelve lista vacia
-[OK]    insertar duplicado no cambia el tamano (40)
+[OK]    buscar("cirugía") es true
+[OK]    buscar("RABIA") es true (ignora mayusculas)
+[OK]    buscar("vac") es false (solo prefijo)
+[OK]    buscar("antibióticos") es false
+[OK]    empiezaCon("ane") es true
+[OK]    empiezaCon("aa") es false
+[OK]    sugerir("anti") devuelve 2 resultados
+[OK]    sugerir("an", 3) devuelve 3 resultados
+[OK]    sugerir("radiografía") devuelve [radiografía]
+[OK]    sugerir("xen") devuelve lista vacia
+[OK]    insertar duplicado no cambia el tamano (30)
 
 Resultado: 11/11 pruebas correctas
 ```
 
-Observe que `pro` tiene 9 palabras en el diccionario, pero se devuelven solo las **5** primeras en
-orden alfabético, cumpliendo el límite máximo pedido en la guía.
+Observe que `anti` comparte el camino `a → n → t → i` y desde ahí se divide en dos ramas
+(`antibiótico` y `antiparasitario`). Las sugerencias salen en orden alfabético gracias al `TreeMap`;
+como este compara por código Unicode, las vocales con tilde quedan después de la `z`
+(por ejemplo, bajo `c` la rama `á` de `cánido` es la última). La sobrecarga `sugerir(prefijo, limite)`
+permite fijar un tope distinto de 5, como en la prueba `sugerir("an", 3)`.
 
 ## Posibles mejoras
 
